@@ -1,1 +1,59 @@
-<h1>Index</h1>
+<% title = 'CSE Motors' %>
+<% upgrades = [
+    { title: 'Flux Capacitor', imageUrl: '/images/upgrades/flux-cap.png' },
+    { title: 'Flame Decals', imageUrl: '/images/upgrades/flame.jpg' },
+    { title: 'Bumper Stickers', imageUrl: '/images/upgrades/bumper_sticker.jpg' },
+    { title: 'Hub Caps', imageUrl: '/images/upgrades/hub-cap.jpg' }
+] %>
+<% reviews = [
+    { description: 'So fast it\'s almost like travelling in time.', evaluation: 4 },
+    { description: 'Coolest ride on the road.', evaluation: 4 },
+    { description: 'I\'m feeling McFly!', evaluation: 5 },
+    { description: 'The most futuristic ride of our day.', evaluation: 4.5 },
+    { description: '80\'s livin and I love it!', evaluation: 5 }
+] %>
+
+<%- contentFor('title') %>
+<%- title %>
+
+<%- contentFor('styles') %>
+<link rel="stylesheet" href="/css/landing.css">
+
+<%- contentFor('body') %>
+    <h1>Welcome to <%- title %>!</h1>
+    <section class="hero-image">
+        <img
+            src="/images/vehicles/delorean-tn.jpg"
+            srcset="/images/vehicles/delorean-tn.jpg 200w,
+                    /images/vehicles/delorean.jpg 500w"
+            sizes="(min-width: 500px) 500px, 100vw"
+            alt="Delorean | Back To The Future"
+        >
+
+        <article>
+            <h2>DMC Delorean</h2>
+            <p>3 Cup Holders</p>
+            <p>Superman Doors</p>
+            <p>Fuzzy dice!</p>
+
+            <button type="button" aria-label="Own Today">Own Today</button>
+        </article>
+    </section>
+    <section>
+        <article id="upgrades">
+            <h2>Delorean Upgrades</h2>
+            <% upgrades.forEach(function(upgrade) { %>
+                <%- include('partials/upgrade-card', { upgrade }) %>
+            <% }); %>
+        </article>
+        <article id="reviews">
+            <h2>DMC Delorean Reviews</h2>
+            <ul>
+                <% reviews.forEach(function(review) { %>
+                    <li>
+                        <p>"<%- review.description %>" (<%- review.evaluation %>/5)</p>
+                    </li>
+                <% }); %>
+            </ul>
+        </article>
+    </section>

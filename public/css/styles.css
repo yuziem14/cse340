@@ -1,6 +1,193 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 /******* Change Box Model ***************/
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+/** Global Styles */
+:root {
+    --primary-color: #01B0D3;
+    --secondary-color: #242332;
+    --light-color: #fff;
+    --dark-color: #111;
+
+    --primary-font-family: 'Lato', sans-serif;
+    --secondary-font-family: 'Roboto', sans-serif;
+
+    font-size: 16px;
+}
+
+body, .wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--primary-font-family);
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.375em;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1.125rem;
+}
+
+li, p, span, a, figcaption {
+    font-size: 1rem;
+    font-family: var(--secondary-font-family);
+}
+
+img {
+    display: block;
+    max-inline-size: 100%;
+}
+
+/** Wrapper Container */
+#wrapper {
+  padding: 0 0.5rem;
+}
+
+/** Header */
+#top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0.5rem;
+}
+
+#top-header a {
+  font-family: var(--primary-font-family);
+  font-weight: bold;
+  font-size: 1.75rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+
+#top-header #tools {
+  align-self: flex-start;
+}
+
+#top-header #tools a {
+  font-size: 0.875rem;
+  align-self: flex-start;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/** Navigation */
+
+nav {
+  background-color: var(--secondary-color);
+  padding: 1rem;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul li {
+  font-family: var(--secondary-font-family);
+  font-size: 1.125rem;
+  color: var(--light-color);
+}
+
+/** Footer */
+footer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-family: var(--primary-font-family);
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  padding: 0 .5rem;
+}
+
+@media screen and (min-width: 640px) {
+  body {
+    background: none;
+    background-image: url(/images/site/small_check.jpg);
+  }
+
+  .wrapper {
+    width: 88%;
+    max-width: 56rem;
+    min-height: calc(100vh - 2rem);
+    margin: 1rem auto;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.25rem;
+  }
 }
