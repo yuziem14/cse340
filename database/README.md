@@ -9,4 +9,4 @@ This directory has 4 SQL files, each one will be described below and you should 
 ---
 ### Recreating Database
 
-As soon as you drop the entire database, the file [assignment2-full-recreate.sql](./assignment2-full-recreate.sql) to recreate it completely. Basically this file will run the previous 3 files in the order as described above.
+As soon as you drop the entire database, the file [assignment2.sql](./assignment2.sql) to recreate it completely. Basically this file will run the previous 3 files in the order as described above.
