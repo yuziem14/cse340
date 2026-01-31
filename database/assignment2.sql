@@ -1,3 +1,4 @@
+-- Migrations
 -- Create account_type Data Type
 create type public.account_type as enum('Client', 'Employee', 'Admin');
 alter type public.account_type owner to cse340;
@@ -37,6 +38,8 @@ create table if not exists public.account (
     account_type account_type not null default 'Client'::account_type,
     constraint account_pkey primary key (account_id)
 );
+
+-- Seeds
 -- Data for table `classification`
 insert into public.classification (classification_name)
 values ('Custom'),
@@ -237,6 +240,30 @@ VALUES (
         'White',
         5
     );
+
+-- Queries
+-- Query 1
+insert into public.account (
+        account_firstname,
+        account_lastname,
+        account_email,
+        account_password
+    )
+VALUES (
+        'Tony',
+        'Stark',
+        'tony@starkent.com',
+        'Iam1ronM@n'
+    );
+-- Query 2
+update public.account
+set account_type = 'Admin'
+where account_firstname ilike 'Tony'
+    and account_lastname ilike 'Stark';
+-- Query 3
+delete from public.account
+where account_firstname ilike 'Tony'
+    and account_lastname ilike 'Stark';
 -- Query 4
 update public.inventory
 set inv_description = replace(
@@ -246,6 +273,13 @@ set inv_description = replace(
     )
 where inv_make ilike 'GM'
     and inv_model ilike 'Hummer';
+-- Query 5
+select i.inv_make,
+    i.inv_model,
+    c.classification_name
+from public.inventory as i
+    inner join public.classification as c on i.classification_id = c.classification_id
+where c.classification_name ilike 'sport';
 -- Query 6
 update public.inventory
 set inv_image = replace(inv_image, '/images/', '/images/vehicles/'),
