@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+
+<main>
+    <h1><%= title %></h1>
+
+    <% if (!category) { %>
+        <p>Category not found.</p>
+        <p>Return to the <a href="/categories">categories list</a>.</p>
+    <% } else { %>
+        <h2><%= category.name %></h2>
+
+        <h3>Service Projects in this Category</h3>
+        <% if (projects.length === 0) { %>
+            <p>No service projects in this category yet.</p>
+        <% } else { %>
+            <ul>
+                <% projects.forEach(project => {
+                    const formattedDate = new Date(project.project_date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                %>
+                    <li>
+                        <%= formattedDate %>:
+                        <a href="/project/<%= project.project_id %>"><%= project.title %></a>
+                        (<a href="/organization/<%= project.organization_id %>"><%= project.organization_name %></a>)
+                    </li>
+                <% }) %>
+            </ul>
+        <% } %>
+    <% } %>
+</main>
+
+<%- include('partials/footer') %>
