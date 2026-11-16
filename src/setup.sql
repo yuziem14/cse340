@@ -52,10 +52,10 @@ CREATE TABLE project (
 --- Insert data into project table
 --- Projects for BrightFuture Builders (organization_id = 1)
 INSERT INTO project (organization_id, title, description, location, project_date)
-VALUES (1, 'Community Center Renovation', 'Help restore and modernize the downtown community center so it can serve more families each week.', 'Downtown Community Center, Main St.', '2026-03-14');
+VALUES (1, 'Community Center Renovation', 'Help restore and modernize the downtown community center so it can serve more families each week.', 'Downtown Community Center, Main St.', '2026-12-05');
 
 INSERT INTO project (organization_id, title, description, location, project_date)
-VALUES (1, 'Affordable Housing Build', 'Join a volunteer construction crew to frame walls and install siding on a new affordable housing unit.', 'Maple Street Housing Site', '2026-04-05');
+VALUES (1, 'Affordable Housing Build', 'Join a volunteer construction crew to frame walls and install siding on a new affordable housing unit.', 'Maple Street Housing Site', '2026-12-19');
 
 INSERT INTO project (organization_id, title, description, location, project_date)
 VALUES (1, 'Senior Home Accessibility Upgrade', 'Install ramps, grab bars, and other accessibility improvements in the homes of senior residents.', 'Riverside Senior Neighborhood', '2026-04-19');
@@ -68,10 +68,10 @@ VALUES (1, 'Playground Equipment Repair', 'Sand, paint, and repair playground eq
 
 --- Projects for GreenHarvest Growers (organization_id = 2)
 INSERT INTO project (organization_id, title, description, location, project_date)
-VALUES (2, 'Rooftop Garden Installation', 'Help assemble raised beds and plant vegetables on the rooftop of a community-owned building.', '5th Avenue Co-op Rooftop', '2026-03-21');
+VALUES (2, 'Rooftop Garden Installation', 'Help assemble raised beds and plant vegetables on the rooftop of a community-owned building.', '5th Avenue Co-op Rooftop', '2026-12-12');
 
 INSERT INTO project (organization_id, title, description, location, project_date)
-VALUES (2, 'School Vegetable Garden', 'Plant and maintain a vegetable garden at a local elementary school as part of nutrition education.', 'Hillside Elementary School', '2026-04-11');
+VALUES (2, 'School Vegetable Garden', 'Plant and maintain a vegetable garden at a local elementary school as part of nutrition education.', 'Hillside Elementary School', '2027-01-09');
 
 INSERT INTO project (organization_id, title, description, location, project_date)
 VALUES (2, 'Community Composting Workshop', 'Teach neighbors how to compost at home and distribute starter bins.', 'Oak Grove Neighborhood Hall', '2026-04-25');
@@ -84,7 +84,7 @@ VALUES (2, 'Seed Library Launch', 'Help catalog donated seeds and set up the fir
 
 --- Projects for UnityServe Volunteers (organization_id = 3)
 INSERT INTO project (organization_id, title, description, location, project_date)
-VALUES (3, 'Food Bank Volunteer Drive', 'Sort, pack, and distribute food donations at the regional food bank.', 'Regional Food Bank Warehouse', '2026-03-28');
+VALUES (3, 'Food Bank Volunteer Drive', 'Sort, pack, and distribute food donations at the regional food bank.', 'Regional Food Bank Warehouse', '2027-01-16');
 
 INSERT INTO project (organization_id, title, description, location, project_date)
 VALUES (3, 'Homeless Shelter Meal Service', 'Prepare and serve a warm dinner for guests at the downtown homeless shelter.', 'Hope House Shelter', '2026-04-18');
