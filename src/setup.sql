@@ -1,4 +1,6 @@
---- Drop tables in dependency order (project depends on organization)
+--- Drop tables in dependency order (junction first, then dependents)
+DROP TABLE IF EXISTS project_category;
+DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS project;
 DROP TABLE IF EXISTS organization;
 
@@ -95,3 +97,49 @@ VALUES (3, 'Senior Companion Program', 'Spend an afternoon visiting and reading 
 
 INSERT INTO project (organization_id, title, description, location, project_date)
 VALUES (3, 'Youth Tutoring Initiative', 'Mentor middle school students in reading and math after school.', 'Westside Community Library', '2026-06-13');
+
+--- Create Table: category
+CREATE TABLE category (
+    category_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE
+);
+
+--- Insert data into category table
+INSERT INTO category (name) VALUES ('Construction & Infrastructure');
+INSERT INTO category (name) VALUES ('Environment & Sustainability');
+INSERT INTO category (name) VALUES ('Food & Nutrition');
+INSERT INTO category (name) VALUES ('Youth & Education');
+INSERT INTO category (name) VALUES ('Community Support');
+
+--- Create Junction Table: project_category (N:M between project and category)
+CREATE TABLE project_category (
+    project_id INTEGER NOT NULL,
+    category_id INTEGER NOT NULL,
+    PRIMARY KEY (project_id, category_id),
+    FOREIGN KEY (project_id) REFERENCES project (project_id),
+    FOREIGN KEY (category_id) REFERENCES category (category_id)
+);
+
+--- Associate each project with at least one category
+--- Category IDs: 1=Construction, 2=Environment, 3=Food, 4=Youth, 5=Community
+
+--- BrightFuture Builders projects (1-5)
+INSERT INTO project_category (project_id, category_id) VALUES (1, 1), (1, 5);
+INSERT INTO project_category (project_id, category_id) VALUES (2, 1), (2, 5);
+INSERT INTO project_category (project_id, category_id) VALUES (3, 1), (3, 5);
+INSERT INTO project_category (project_id, category_id) VALUES (4, 1), (4, 2);
+INSERT INTO project_category (project_id, category_id) VALUES (5, 1), (5, 4);
+
+--- GreenHarvest Growers projects (6-10)
+INSERT INTO project_category (project_id, category_id) VALUES (6, 2), (6, 3);
+INSERT INTO project_category (project_id, category_id) VALUES (7, 3), (7, 4);
+INSERT INTO project_category (project_id, category_id) VALUES (8, 2);
+INSERT INTO project_category (project_id, category_id) VALUES (9, 3), (9, 5);
+INSERT INTO project_category (project_id, category_id) VALUES (10, 2), (10, 5);
+
+--- UnityServe Volunteers projects (11-15)
+INSERT INTO project_category (project_id, category_id) VALUES (11, 3), (11, 5);
+INSERT INTO project_category (project_id, category_id) VALUES (12, 3), (12, 5);
+INSERT INTO project_category (project_id, category_id) VALUES (13, 5);
+INSERT INTO project_category (project_id, category_id) VALUES (14, 5);
+INSERT INTO project_category (project_id, category_id) VALUES (15, 4);

@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+
+<main>
+    <h1><%= title %></h1>
+
+    <p>Browse the different categories of service opportunities:</p>
+    <ul>
+        <% categories.forEach(category => { %>
+            <li><%= category.name %></li>
+        <% }) %>
+    </ul>
+</main>
+
+<%- include('partials/footer') %>
